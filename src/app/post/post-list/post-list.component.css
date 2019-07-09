@@ -1,3 +1,50 @@
-.grid-list {
-    margin-top: 30px;
+.container {
+    background-color: rgb(192, 188, 188);
+}
+
+mat-grid-list {
+    margin-top: 80px;
+    background-color: rgb(228, 225, 225);
+    box-shadow: 10px 10px 10px grey;
+}
+
+.body {
+    background-color: white;
+}
+
+.body p {
+    text-align: center;
+    margin: 10px;
+}
+
+.title {
+    border-radius: 6px;
+    background-color: rgb(151, 148, 148); 
+}
+
+.button {
+    background: white;
+    color: rgb(77, 109, 216);
+    border-radius: 50%
+}
+
+.title h6 {
+    color: white;
+}
+
+.userName {
+    background-color: white;
+    background-color: rgb(192, 188, 188);
+}
+
+.userName h6 {
+    text-decoration: underline;
+}
+
+.condition {
+    background-color: rgb(192, 188, 188);
+}
+
+.condition h6 {
+    text-decoration: underline;
 }

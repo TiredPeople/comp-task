@@ -1,30 +1,41 @@
-<mat-grid-list cols = "12" rowHeight = "100px" *ngFor="let post of post" class="grid-list">
-        <mat-grid-tile 
-        [colspan] = "1"
-        [rowspan] = "1" style="border: 1px solid black">
-        </mat-grid-tile>
-        <mat-grid-tile 
-        [colspan] = "1"
-        [rowspan] = "1" style="border: 1px solid black">2
-        </mat-grid-tile>
-        <mat-grid-tile 
-        [colspan] = "10"
-        [rowspan] = "1" style="border: 1px solid black">{{ post.title }}
-        </mat-grid-tile>
-        <mat-grid-tile 
-        [colspan] = "12"
-        [rowspan] = "6" style="border: 1px solid black">4
-        </mat-grid-tile>
-        <mat-grid-tile 
-        [colspan] = "1"
-        [rowspan] = "1" style="border: 1px solid black">4
-        </mat-grid-tile>
-        <mat-grid-tile 
-        [colspan] = "9"
-        [rowspan] = "1" style="border: 1px solid black">4
-        </mat-grid-tile>
-        <mat-grid-tile 
-        [colspan] = "2"
-        [rowspan] = "1" style="border: 1px solid black">3
-        </mat-grid-tile>
-        
+<div class="container" dir="rtl" >
+
+  <mat-grid-list cols="20" rowHeight = "50px" *ngFor="let post of show;">
+
+      <mat-grid-tile [colspan] = "7"[rowspan] = "1" class="title">
+        <h6>{{post.title}}</h6>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "20"[rowspan] = "4" class="body">
+        <p>{{post.body}}</p>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "3"[rowspan] = "1" class="userName">
+          <a [routerLink] = "['/users', user.id ]" *ngFor="let user of user"><h6 *ngIf="post.userId == user.id">{{user.name}}</h6></a>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "12"[rowspan] = "1"></mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "1"[rowspan] = "1" class="button">
+        <button mat-icon-button (click)="increment()">
+          <mat-icon>thumb_up</mat-icon>
+        </button>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "1"[rowspan] = "1">{{counter}}</mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "1"[rowspan] = "1" class="button">
+          <button mat-icon-button (click)="decrement()">
+            <mat-icon>thumb_down</mat-icon>
+          </button>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] = "2"[rowspan] = "1" class="condition">
+        <a [routerLink] = "['/posts', post.id ]"><h6>نظرات</h6></a>
+      </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <pagination totalItems="{{len}}" (pageChanged)="pageChanged($event)"></pagination>
+
+</div>

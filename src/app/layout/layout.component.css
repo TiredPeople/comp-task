@@ -5,3 +5,7 @@
 .flex-wrapper{
     height: 100%;
 }
+
+div {
+    background-color: rgb(240, 235, 235);
+}

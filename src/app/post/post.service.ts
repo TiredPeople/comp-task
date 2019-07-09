@@ -19,4 +19,9 @@ export class PostService{
         this.configUrl = 'https://jsonplaceholder.ir/users';
         return this.http.get(this.configUrl);
     }
+
+    fetchComment(): Observable<any> {
+        this.configUrl = 'https://jsonplaceholder.ir/comments';
+        return this.http.get(this.configUrl);
+    }
 }

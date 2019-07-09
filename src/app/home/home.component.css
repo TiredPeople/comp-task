@@ -12,7 +12,7 @@
   margin-right: 10px;
   box-shadow: 10px 10px 10px grey;
   border: 0.1px solid black;
-  height: 200px;
+  height: 230px;
 }
 
 .example-card:hover {
@@ -35,7 +35,7 @@ button {
 mat-card-actions {
   height:20px;
   width:100px;
-  margin: -20px -50px;
+  margin: -20px -35px;
   position:relative;
   top:20%;
   left:50%;

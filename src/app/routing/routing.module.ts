@@ -6,6 +6,7 @@ import { UserListComponent } from '../user/user-list/user-list.component';
 import { UserProfileComponent } from '../user/user-profile/user-profile.component';
 import { LoginFormComponent} from '../login/login-form/login-form.component';
 import { PostListComponent } from '../post/post-list/post-list.component';
+import { PostDetailComponent } from '../post/post-detail/post-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserProfileComponent},
   { path: 'form', component: LoginFormComponent },
   { path: 'posts', component: PostListComponent },
+  { path: 'posts/:id', component: PostDetailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 ];

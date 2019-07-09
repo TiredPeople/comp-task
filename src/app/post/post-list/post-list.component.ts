@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { PostService } from './post.service';
-import { Post } from './post';
-import { User } from './user';
-
-import {PageEvent} from '@angular/material/paginator';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { PostService } from '../post.service';
+import { Post } from '../post';
+import { User } from '../user';
+import { Comment } from '../comment';
 
 @Component({
   selector: 'app-post-list',
@@ -15,21 +14,19 @@ export class PostListComponent implements OnInit {
 
   user$: any;
   post$: any;
+  comment$: any;
   @Input() user: User;
   @Input() post: Post;
-  length: 100;
-  pageSize: 10;
-  pageSizeOptions: number[] = [10, 20, 25, 50, 100];
+  @Input() comment: Comment;
+  len: any;
+  show: any;
+  counter = 1;
+  endItem: any;
 
-  pageEvent: PageEvent;
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.fetchPost();
     this.fetchUser();
+    this.fetchComment();
   }
 
   constructor(private postService: PostService) { }
@@ -45,7 +42,36 @@ export class PostListComponent implements OnInit {
     this.post$ = this.postService.fetchPost();
     this.post$.subscribe((res: any) => {
       this.post = res;
+      this.len = res.length;
+      this.show = res.slice(0, 10);
     });
+  }
+
+  fetchComment() {
+    this.comment$ = this.postService.fetchUser();
+    this.comment$.subscribe((res: any) => {
+      this.comment = res;
+      console.log(res);
+    });
+  }
+
+  increment() {
+    if ( this.counter === 0) {
+      this.counter = 1;
+    }
+    this.counter += 1;
+  }
+  decrement() {
+    if ( this.counter === 0) {
+      this.counter = 1;
+    }
+    this.counter -= 1;
+  }
+
+  pageChanged(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    this.endItem = event.page * event.itemsPerPage;
+    this.show = this.post.slice(startItem, this.endItem);
   }
 
 }

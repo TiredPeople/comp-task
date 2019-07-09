@@ -14,14 +14,9 @@
             </ul>
         </mat-card-content>
         <mat-card-actions class="profile">
-            <a [routerLink] = "['/users', user.id ]"><button mat-raised-button color="primary">پروفایل</button></a>
-            <button mat-raised-button color="primary">پست ها</button>
+            <a [routerLink] = "['/users', user.id ]"><button>پروفایل</button></a>
+            <a [routerLink] = "['/posts']"><button>پست ها</button></a>
         </mat-card-actions>
     </mat-card>
-    <mat-paginator class="mat-pag" [length]="length"
-        [pageSize]="pageSize"
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="pageEvent = $event">
-    </mat-paginator>
   </div>
  

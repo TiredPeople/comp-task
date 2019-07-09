@@ -4,7 +4,6 @@ import { UserService } from './user.service';
 import { User } from './user';
 import { Post } from './post';
 
-import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-user-list',
@@ -17,15 +16,6 @@ export class UserListComponent implements OnInit {
   post$: any;
   @Input() user: User;
   @Input() post: Post;
-  length: 10;
-  pageSize: 5;
-  pageSizeOptions: number[] = [1, 2, 5, 10];
-
-  pageEvent: PageEvent;
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-  }
 
   ngOnInit() {
     this.fetchUser();
