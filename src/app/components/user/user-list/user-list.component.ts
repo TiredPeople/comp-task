@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { UserService } from './user.service';
-import { User } from './user';
-import { Post } from './post';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../models/user';
+import { Post } from '../../../models/post';
 
 
 @Component({

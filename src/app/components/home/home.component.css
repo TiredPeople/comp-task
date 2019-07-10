@@ -7,6 +7,16 @@
   display: flex;
 }
 
+mat-card-actions {
+  height:20px;
+  width:100px;
+  margin: -20px -35px;
+  position:relative;
+  top:20%;
+  left:50%;
+}
+
+
 .example-card {
   margin-left: 10px;
   margin-right: 10px;
@@ -30,13 +40,4 @@ img {
 
 button {
   display: none;
-}
-
-mat-card-actions {
-  height:20px;
-  width:100px;
-  margin: -20px -35px;
-  position:relative;
-  top:20%;
-  left:50%;
 }

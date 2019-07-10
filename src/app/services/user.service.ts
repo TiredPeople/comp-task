@@ -10,12 +10,12 @@ export class UserService{
     constructor(private http: HttpClient) {}
 
 
-    fetchUser(): Observable<any> {
+    fetchUser(): Observable<object> {
         this.configUrl = 'https://jsonplaceholder.ir/users';
         return this.http.get(this.configUrl);
     }
 
-    fetchPost(): Observable<any> {
+    fetchPost(): Observable<object> {
         this.configUrl = 'https://jsonplaceholder.ir/posts';
         return this.http.get(this.configUrl);
     }

@@ -1,15 +1,14 @@
-.container {
-    background-color: rgb(192, 188, 188);
-}
-
 mat-grid-list {
     margin-top: 80px;
     background-color: rgb(228, 225, 225);
     box-shadow: 10px 10px 10px grey;
+    border: 1px solid black;
 }
 
 .body {
     background-color: white;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
 
 .body p {
@@ -23,9 +22,9 @@ mat-grid-list {
 }
 
 .button {
-    background: white;
+    background-color: rgb(228, 225, 225);
     color: rgb(77, 109, 216);
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .title h6 {
@@ -35,14 +34,30 @@ mat-grid-list {
 .userName {
     background-color: white;
     background-color: rgb(192, 188, 188);
+    border-left: 1px solid black;
 }
 
 .userName h6 {
     text-decoration: underline;
 }
 
-.condition {
-    background-color: rgb(192, 188, 188);
+.emptySpce {
+    border: 1px solid black;
+    background-color: rgb(240, 238, 238);
+}
+
+.commentAuthor {
+    border-top: 1px solid black;
+    background-color:white;
+}
+
+.commentEamil {
+    background-color:white;
+}
+
+.commentBody {
+    border-bottom: 1px solid black;
+    background-color:white;
 }
 
 .condition h6 {

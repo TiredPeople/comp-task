@@ -1,18 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { ActivatedRoute } from '@angular/router';
-
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { PostService } from '../post.service';
-import { Post } from '../post';
-import { User } from '../user';
-import { Comment} from '../comment';
+import { Post } from '../../../models/post';
+import { User } from '../../../models/user';
+import { Comment } from '../../../models/comment';
 
 @Component({
-  selector: 'app-post-detail',
-  templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html',
+  styleUrls: ['./post-list.component.css']
 })
-export class PostDetailComponent implements OnInit {
+export class PostListComponent implements OnInit {
 
   user$: any;
   post$: any;
@@ -20,22 +18,18 @@ export class PostDetailComponent implements OnInit {
   @Input() user: User;
   @Input() post: Post;
   @Input() comment: Comment;
-  href: any;
-  page: any;
-  counter = 0;
+  len: any;
+  show: any;
+  counter = 1;
+  endItem: any;
 
   ngOnInit(): void {
-    this.route.params.subscribe( (res: any) => {
-      this.href = res;
-    });
-
     this.fetchPost();
     this.fetchUser();
     this.fetchComment();
-
   }
 
-  constructor(private route: ActivatedRoute, private postService: PostService) { }
+  constructor(private postService: PostService) { }
 
   fetchUser() {
     this.user$ = this.postService.fetchUser();
@@ -48,13 +42,16 @@ export class PostDetailComponent implements OnInit {
     this.post$ = this.postService.fetchPost();
     this.post$.subscribe((res: any) => {
       this.post = res;
+      this.len = res.length;
+      this.show = res.slice(0, 10);
     });
   }
 
   fetchComment() {
-    this.comment$ = this.postService.fetchComment();
+    this.comment$ = this.postService.fetchUser();
     this.comment$.subscribe((res: any) => {
       this.comment = res;
+      console.log(res);
     });
   }
 
@@ -69,6 +66,13 @@ export class PostDetailComponent implements OnInit {
       this.counter = 1;
     }
     this.counter -= 1;
+  }
+
+  pageChanged(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    this.endItem = event.page * event.itemsPerPage;
+    this.show = Object.keys(this.post).slice(startItem, this.endItem).map(key => this.post[key]);
+    console.log(this.show);
   }
 
 }

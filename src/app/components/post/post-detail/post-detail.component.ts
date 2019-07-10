@@ -1,16 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+
+import { ActivatedRoute } from '@angular/router';
+
 import { PostService } from '../post.service';
-import { Post } from '../post';
-import { User } from '../user';
-import { Comment } from '../comment';
+import { Post } from '../../../models/post';
+import { User } from '../../../models/user';
+import { Comment} from '../../../models/comment';
 
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  selector: 'app-post-detail',
+  templateUrl: './post-detail.component.html',
+  styleUrls: ['./post-detail.component.css']
 })
-export class PostListComponent implements OnInit {
+export class PostDetailComponent implements OnInit {
 
   user$: any;
   post$: any;
@@ -18,18 +20,22 @@ export class PostListComponent implements OnInit {
   @Input() user: User;
   @Input() post: Post;
   @Input() comment: Comment;
-  len: any;
-  show: any;
-  counter = 1;
-  endItem: any;
+  href: any;
+  page: any;
+  counter = 0;
 
   ngOnInit(): void {
+    this.route.params.subscribe( (res: any) => {
+      this.href = res;
+    });
+
     this.fetchPost();
     this.fetchUser();
     this.fetchComment();
+
   }
 
-  constructor(private postService: PostService) { }
+  constructor(private route: ActivatedRoute, private postService: PostService) { }
 
   fetchUser() {
     this.user$ = this.postService.fetchUser();
@@ -42,16 +48,13 @@ export class PostListComponent implements OnInit {
     this.post$ = this.postService.fetchPost();
     this.post$.subscribe((res: any) => {
       this.post = res;
-      this.len = res.length;
-      this.show = res.slice(0, 10);
     });
   }
 
   fetchComment() {
-    this.comment$ = this.postService.fetchUser();
+    this.comment$ = this.postService.fetchComment();
     this.comment$.subscribe((res: any) => {
       this.comment = res;
-      console.log(res);
     });
   }
 
@@ -66,12 +69,6 @@ export class PostListComponent implements OnInit {
       this.counter = 1;
     }
     this.counter -= 1;
-  }
-
-  pageChanged(event: PageChangedEvent): void {
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    this.endItem = event.page * event.itemsPerPage;
-    this.show = this.post.slice(startItem, this.endItem);
   }
 
 }
