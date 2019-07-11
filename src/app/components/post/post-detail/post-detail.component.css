@@ -1,65 +1,43 @@
-mat-grid-list {
-    margin-top: 80px;
-    background-color: rgb(228, 225, 225);
-    box-shadow: 10px 10px 10px grey;
-    border: 1px solid black;
+.profile img {
+    border-radius: 70px;
+    margin-left: 50px;
 }
 
-.body {
-    background-color: white;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-}
-
-.body p {
+.profile p {
     text-align: center;
-    margin: 10px;
+}
+
+.profile label {
+    display:block;
+    width:x;
+    height:y;
+    text-align:right;
 }
 
 .title {
-    border-radius: 6px;
-    background-color: rgb(151, 148, 148); 
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.button {
-    background-color: rgb(228, 225, 225);
-    color: rgb(77, 109, 216);
-    border-radius: 50%;
+.body {
+    text-align: center;
 }
 
-.title h6 {
-    color: white;
+.name {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.userName {
-    background-color: white;
-    background-color: rgb(192, 188, 188);
-    border-left: 1px solid black;
+.post {
+    margin-top: 100px;
 }
 
-.userName h6 {
-    text-decoration: underline;
+.comment {
+    margin-right: 60px;
 }
 
-.emptySpce {
-    border: 1px solid black;
-    background-color: rgb(240, 238, 238);
-}
-
-.commentAuthor {
-    border-top: 1px solid black;
-    background-color:white;
-}
-
-.commentEamil {
-    background-color:white;
-}
-
-.commentBody {
-    border-bottom: 1px solid black;
-    background-color:white;
-}
-
-.condition h6 {
-    text-decoration: underline;
+.commentSection {
+    margin-top: 40px;
 }

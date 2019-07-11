@@ -22,6 +22,7 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule,
     MatGridListModule,
     FormsModule,
     MatSelectModule,
+    CommonModule,
   ],
   exports: [
     MatButtonModule,
@@ -29,12 +30,13 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule,
     MatToolbarModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatCardModule,MatMenuModule,
+    MatCardModule,
+    MatMenuModule,
     MatIconModule,
     MatPaginatorModule,
     MatGridListModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   declarations: []
 })

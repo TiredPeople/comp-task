@@ -22,6 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../services/user.service';
 import { PostService } from '../components/post/post.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LyThemeModule, LY_THEME } from '@alyle/ui';
+import { LyButtonModule } from '@alyle/ui/button';
+import { LyToolbarModule } from '@alyle/ui/toolbar';
+import { LyResizingCroppingImageModule } from '@alyle/ui/resizing-cropping-images';
+import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
 
 @NgModule({
   declarations: [
@@ -43,10 +48,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    PaginationModule.forRoot()
-
+    PaginationModule.forRoot(),
+    LyThemeModule.setTheme('minima-light'),
+    LyButtonModule,
+    LyToolbarModule,
+    LyResizingCroppingImageModule
   ],
-  providers: [ UserService, PostService ],
+  providers: [
+    UserService,
+    PostService,
+    { provide: LY_THEME, useClass: MinimaLight, multi: true },
+    { provide: LY_THEME, useClass: MinimaDark, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
