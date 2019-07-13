@@ -1,0 +1,97 @@
+button {
+    border-radius: 10px;
+}
+
+.profile {
+    background-color: rgb(226, 223, 223);
+    border: 2px solid white;
+    margin-top: 50px
+}
+
+.profile img {
+    border-radius: 80px;
+    margin-left: 50px;
+    border: 2px solid black;
+}
+
+.profile p {
+    text-align: center;
+}
+
+.profile label {
+    display:block;
+    width:x;
+    height:y;
+    text-align:right;
+}
+
+.postSection {
+    background-color: rgb(226, 223, 223);
+    margin-top: 50px;
+    border: 2px solid white;
+}
+
+.title {
+    margin-top: 30px;
+    margin-left: 510px;
+    margin-bottom: 30px;
+    color: rgb(11, 11, 238);
+}
+
+.date {
+    margin-left: 600px;
+}
+
+.body {
+    margin-top: 40px;
+    text-align: center;
+}
+ 
+.name {
+    margin-top: 40px;
+    margin-left: 600px;
+    margin-bottom: 0;
+}
+
+.counter{
+    margin-left: 30px;
+}
+
+.post {
+    margin-top: 100px;
+}
+
+.commentSection {
+    margin-top: 40px;
+    background-color: rgb(226, 223, 223);
+    border: 2px solid white;
+}
+
+.avatar {
+    border: 1px solid black;
+}
+
+.email {
+    margin-left: 20px;
+}
+
+.condition {
+    background-color: rgb(226, 223, 223);
+    border: 2px solid white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form {
+    background-color:rgb(199, 194, 194);
+    border: 2px solid white;
+}
+
+.form label {
+    margin-left: 600px;
+    margin-top: 20px;
+}
+
+.form input{
+    margin-left: 20px;
+}

@@ -1,0 +1,68 @@
+<div class="container" dir="rtl" *ngFor = "let post of post">
+
+    <div class="row" *ngIf="post.id == href.id">
+
+        <!-- profile section -->
+        <div class="col-sm-3">
+
+            <div *ngFor="let user of user">
+                <div *ngIf="post.userId == user.id" class="profile">
+                        <img style="margin-top: 20px" src="{{user.avatar}}">
+                        <p><label>نام : </label>{{user.name}}</p>
+                        <p><label>پست الکترونیک : </label>{{user.email}}</p>
+                        <p><label>وب سایت : </label>{{user.website}}</p>
+                        <p><label>شرکت : </label>{{user.company}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        <!-- comments section -->
+        <div class="col-sm-8">
+            <div class="postSection">
+                <div *ngFor="let user of user">
+                    <div *ngIf="post.userId == user.id">
+                            <p class="title">{{post.title}}</p>
+                        </div>
+                    <div *ngIf="post.userId == user.id">
+                                <p class="date">{{date | date:'yyyy-MM-dd'}}</p>
+                            </div>
+                    <div *ngIf="post.userId == user.id">
+                                <p class="body">{{post.body}}</p>
+                            </div>
+                    <div *ngIf="post.userId == user.id" class="footer">
+                                <p class="name">{{user.name}}</p>
+                                <p class="counter">{{counter}}</p>
+                                <button (click) = "increment()"><i class="fa fa-thumbs-up"></i></button><button (click) = "decrement()"><i class="fa fa-thumbs-down"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+
+            <div *ngFor="let comment of comment" >
+                <div *ngIf="href.id == comment.postId" class="commentSection">
+                        <img class="avatar" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="height: 40px; width: 40px;margin-left:700px;">
+                        <p style="text-align: right;margin-top: 20px;">{{comment.name}}</p>
+                        <p style="text-align: center">{{comment.body}}</p>
+                        <p class="email">{{comment.email}}</p>
+                    </div>
+                    
+                </div>
+
+            <div class="condition">
+                    <h5 style="text-align: center; margin: 20px;">ارسال نظر</h5>
+                </div>
+
+            <div class="form">
+                <label>نام : </label><input type="text" size="60"><br>
+                <label>پست الکترونیک : </label><input type="email" size="60"><br>
+                <label>سایت یا وبلاگ : </label><input type="text" size="60"><br>
+                <label>پیام : </label><textarea cols="60" rows="10" style="margin-left: 20px;"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+

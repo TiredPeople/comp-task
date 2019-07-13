@@ -1,0 +1,26 @@
+<div class="container" dir="rtl" *ngFor="let post of show">
+        <div class="row">
+                <div class="col-sm-3">
+
+                        </div>
+                <div class="col-sm-6 posts">
+                        <a [routerLink] = "['/posts', post.id ]"><p class="title">{{post.title}}</p></a>
+                        <p class="body">{{post.body}}</p>
+                        <div *ngFor = " let user of user">
+                                        <a [routerLink] = "['/users', user.id ]"><p class="name" *ngIf = "post.userId == user.id">{{user.name}}</p></a>
+                                </div>
+                        </div>
+                <div class="col-sm-3">
+
+                        </div>
+                </div>
+        </div>
+
+<div class="row" dir="rtl" style="margin-top: 30px">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+                        <pagination dir="rtl" totalItems="{{len}}" (pageChanged)="pageChanged($event)"></pagination>
+                </div>
+
+</div>
+

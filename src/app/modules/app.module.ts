@@ -10,17 +10,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { HomeComponent } from '../components/home/home.component';
-import { UserListComponent } from '../components/user/user-list/user-list.component';
-import { UserProfileComponent } from '../components/user/user-profile/user-profile.component';
-import { LoginFormComponent} from '../components/login/login-form/login-form.component';
-import { PostListComponent } from '../components/post/post-list/post-list.component';
-import { PostDetailComponent } from '../components/post/post-detail/post-detail.component';
+import { UserListComponent } from './user/components/user-list/user-list.component';
+import { UserProfileComponent } from './user/components/user-profile/user-profile.component';
+import { LoginFormComponent} from './login/components/login-form/login-form.component';
+import { PostListComponent } from './post/components/post-list/post-list.component';
+import { PostDetailComponent } from './post/components/post-detail/post-detail.component';
 
 import { MaterialModule } from './material.module';
 import { RoutingModule } from '../components/routing/routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from '../services/user.service';
-import { PostService } from '../components/post/post.service';
+import { UserService } from './user/services/user.service';
+import { PostService } from './post/services/post.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LyThemeModule, LY_THEME } from '@alyle/ui';
 import { LyButtonModule } from '@alyle/ui/button';

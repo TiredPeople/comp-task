@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { PostListComponent } from '../post-list/post-list.component';
-import { PostDetailComponent } from '../post-detail/post-detail.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
+let id: number;
 
 
 const routes: Routes = [
-  { path: '', component: PostListComponent },
-  { path: '', component: PostDetailComponent}
+  { path: '', component: UserListComponent },
+  { path: '', component: UserProfileComponent }
 ];
 
 @NgModule({
@@ -20,4 +22,4 @@ const routes: Routes = [
   ],
   declarations: []
 })
-export class PostRoutingModule { }
+export class UserRoutingModule { }

@@ -1,0 +1,31 @@
+<div class="container" dir="rtl" *ngFor="let user of user">
+
+    <div class="row">
+
+        <div class="col-sm-1"></div>
+
+        <!-- profile section -->
+        <div class="col-sm-9" *ngIf="user.id == href.id">
+            <div>
+                <div *ngIf="href.id == user.id" class="profile">
+                        <div class="username">
+                                <h2>{{user.username}}</h2>
+                            </div>
+                        <img style="margin-top: 20px" src="{{user.avatar}}">
+                        <div class="name">
+                                <label>نام: </label><h6>{{user.name}}</h6>
+                            </div>
+                        <div class="email">
+                                <label>پست الکترونیک:</label><h6>{{user.email}}</h6>
+                            </div>
+                        <div class="website">
+                                <label>وب سایت : </label><h6>{{user.website}}</h6>
+                            </div>
+                        <div class="posts">
+                                <button [routerLink] = "['/posts']">پست ها</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

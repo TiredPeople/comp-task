@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import { PostService } from '../post.service';
-import { Post } from '../../../models/post';
-import { User } from '../../../models/user';
-import { Comment } from '../../../models/comment';
+import { PostService } from '../../services/post.service';
+import { Post } from '../../../../models/post';
+import { User } from '../../../../models/user';
+import { Comment } from '../../../../models/comment';
 
 @Component({
   selector: 'app-post-list',
@@ -74,5 +74,6 @@ export class PostListComponent implements OnInit {
     this.show = Object.keys(this.post).slice(startItem, this.endItem).map(key => this.post[key]);
     console.log(this.show);
   }
+  
 
 }

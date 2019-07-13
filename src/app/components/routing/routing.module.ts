@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
-import { UserListComponent } from '../user/user-list/user-list.component';
-import { UserProfileComponent } from '../user/user-profile/user-profile.component';
-import { LoginFormComponent} from '../login/login-form/login-form.component';
-import { PostListComponent } from '../post/post-list/post-list.component';
-import { PostDetailComponent } from '../post/post-detail/post-detail.component';
+import { UserListComponent } from '../../modules/user/components/user-list/user-list.component';
+import { UserProfileComponent } from '../../modules/user/components/user-profile/user-profile.component';
+import { LoginFormComponent} from '../../modules/login/components/login-form/login-form.component';
+import { PostListComponent } from '../../modules/post/components/post-list/post-list.component';
+import { PostDetailComponent } from '../../modules/post/components/post-detail/post-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},

@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { PostService } from '../post.service';
-import { Post } from '../../../models/post';
-import { User } from '../../../models/user';
-import { Comment} from '../../../models/comment';
+import { PostService } from '../../services/post.service';
+import { Post } from '../../../../models/post';
+import { User } from '../../../../models/user';
+import { Comment} from '../../../../models/comment';
 
 @Component({
   selector: 'app-post-detail',
@@ -21,6 +21,7 @@ export class PostDetailComponent implements OnInit {
   @Input() post: Post;
   @Input() comment: Comment;
   href: any;
+  date: any;
   page: any;
   counter = 0;
 
@@ -28,6 +29,8 @@ export class PostDetailComponent implements OnInit {
     this.route.params.subscribe( (res: any) => {
       this.href = res;
     });
+
+    this.date = new Date();
 
     this.fetchPost();
     this.fetchUser();
@@ -59,14 +62,14 @@ export class PostDetailComponent implements OnInit {
   }
 
   increment() {
-    if ( this.counter === 0) {
-      this.counter = 1;
+    if ( this.counter >= 1) {
+      return
     }
     this.counter += 1;
   }
   decrement() {
-    if ( this.counter === 0) {
-      this.counter = 1;
+    if ( this.counter <= 0) {
+      return
     }
     this.counter -= 1;
   }

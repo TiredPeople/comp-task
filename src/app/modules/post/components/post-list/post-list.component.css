@@ -1,0 +1,19 @@
+.posts {
+    margin-top: 30px;
+    background-color: rgb(226, 223, 223);
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.title {
+    text-align: right;
+    color: rgb(18, 142, 173);
+}
+
+.name {
+    text-align: right;
+}
+
+.body {
+    text-align: center;
+}

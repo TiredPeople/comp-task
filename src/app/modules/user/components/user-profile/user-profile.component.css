@@ -1,0 +1,49 @@
+img {
+    width: 30%;
+    height: 30%;
+    border: 2px solid white;
+    margin-left: 35%;
+    border-radius: 40px;
+}
+
+.profile {
+    border: 2px solid white;
+    background-color: rgb(229, 226, 226);
+    margin-right: 30px;
+    margin-top: 50px;
+    margin-bottom: 90px;
+}
+
+label {
+    font-size: 20px;
+    margin-left: 120px;
+}
+
+.username {
+    text-align: center;
+}
+
+.name {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.email {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.website {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    margin-left: 45%;
+}
+
+.commentSection {
+    border: 2px solid white;
+    background-color: rgb(229, 226, 226);
+    margin-right: 30px;
+}
