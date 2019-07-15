@@ -11,9 +11,6 @@ import { Post } from '../../../../models/post';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
-  user$: any;
-  post$: any;
   @Input() user: User;
   @Input() post: Post;
 
@@ -26,15 +23,17 @@ export class UserListComponent implements OnInit {
 
 
   fetchUser() {
-    this.user$ = this.userService.fetchUser();
-    this.user$.subscribe((res: any) => {
+    let user$: any;
+    user$ = this.userService.fetchUser();
+    user$.subscribe((res: any) => {
       this.user = res;
     });
   }
 
   fetchPost() {
-    this.post$ = this.userService.fetchPost();
-    this.post$.subscribe((res: any) => {
+    let post$: any;
+    post$ = this.userService.fetchPost();
+    post$.subscribe((res: any) => {
       this.post = res;
     });
   }

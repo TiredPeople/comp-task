@@ -5,3 +5,4 @@ export class Post {
     body: string;
 }
 
+export type Posts = Post[];

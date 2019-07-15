@@ -22,11 +22,13 @@ export class PostListComponent implements OnInit {
   show: any;
   counter = 1;
   endItem: any;
+  select: number;
 
   ngOnInit(): void {
     this.fetchPost();
     this.fetchUser();
     this.fetchComment();
+    this.select=5;
   }
 
   constructor(private postService: PostService) { }
@@ -42,8 +44,8 @@ export class PostListComponent implements OnInit {
     this.post$ = this.postService.fetchPost();
     this.post$.subscribe((res: any) => {
       this.post = res;
-      this.len = res.length;
       this.show = res.slice(0, 10);
+      this.len = res.length;
     });
   }
 
@@ -51,7 +53,6 @@ export class PostListComponent implements OnInit {
     this.comment$ = this.postService.fetchUser();
     this.comment$.subscribe((res: any) => {
       this.comment = res;
-      console.log(res);
     });
   }
 
@@ -69,11 +70,19 @@ export class PostListComponent implements OnInit {
   }
 
   pageChanged(event: PageChangedEvent): void {
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    this.endItem = event.page * event.itemsPerPage;
-    this.show = Object.keys(this.post).slice(startItem, this.endItem).map(key => this.post[key]);
-    console.log(this.show);
+    if (this.select == 10){
+      const startItem = (event.page - 1) * event.itemsPerPage;
+      this.endItem = event.page * event.itemsPerPage;
+      this.show = Object.keys(this.post).slice(startItem, this.endItem).map(key => this.post[key]);
+    } else {
+      const startItem = (event.page - 1) * this.select;
+      this.endItem = event.page * this.select;
+      this.show = Object.keys(this.post).slice(startItem, this.endItem).map(key => this.post[key]);
+    }
   }
   
+  onChange(event) {
+    this.select = event;
+  }
 
 }

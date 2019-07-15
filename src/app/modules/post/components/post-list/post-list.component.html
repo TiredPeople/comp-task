@@ -19,6 +19,12 @@
 <div class="row" dir="rtl" style="margin-top: 30px">
         <div class="col-sm-3"></div>
         <div class="col-sm-9">
+                        <select (change)="onChange($event.target.value)">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                </select>
                         <pagination dir="rtl" totalItems="{{len}}" (pageChanged)="pageChanged($event)"></pagination>
                 </div>
 

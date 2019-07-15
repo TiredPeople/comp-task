@@ -14,15 +14,11 @@ import { Comment} from '../../../../models/comment';
 })
 export class PostDetailComponent implements OnInit {
 
-  user$: any;
-  post$: any;
-  comment$: any;
   @Input() user: User;
   @Input() post: Post;
   @Input() comment: Comment;
   href: any;
-  date: any;
-  page: any;
+  date: Date;
   counter = 0;
 
   ngOnInit(): void {
@@ -41,22 +37,25 @@ export class PostDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 
   fetchUser() {
-    this.user$ = this.postService.fetchUser();
-    this.user$.subscribe((res: any) => {
+    let user$: any;
+    user$ = this.postService.fetchUser();
+    user$.subscribe((res: any) => {
       this.user = res;
     });
   }
 
   fetchPost() {
-    this.post$ = this.postService.fetchPost();
-    this.post$.subscribe((res: any) => {
+    let post$: any;
+    post$ = this.postService.fetchPost();
+    post$.subscribe((res: any) => {
       this.post = res;
     });
   }
 
   fetchComment() {
-    this.comment$ = this.postService.fetchComment();
-    this.comment$.subscribe((res: any) => {
+    let comment$: any;
+    comment$ = this.postService.fetchComment();
+    comment$.subscribe((res: any) => {
       this.comment = res;
     });
   }
